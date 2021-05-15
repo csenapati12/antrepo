@@ -7,4 +7,5 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
     stage("build"){
         echo "test"
     }
+    //test
 }
