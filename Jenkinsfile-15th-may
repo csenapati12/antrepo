@@ -1,0 +1,10 @@
+node(){
+  
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3')), parameters([choice(choices: ['DEV', 'SILO1'], description: '', name: 'profile'), string(defaultValue: 'test', description: '', name: 'node', trim: false)])])
+    stage("Checkout"){
+        checkout([$class: 'GitSCM', branches: [[name: '*/$BRANCH']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/$repo/java-tomcat-maven-docker.git']]])
+    }
+    stage("build"){
+        echo "test"
+    }
+}
